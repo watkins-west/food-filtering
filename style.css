@@ -22,6 +22,7 @@ html,
 body {
     /* Sets default font-size to 16px, ensuring 1em = 16px; */
     font-size: 16px;
+    background-color: antiquewhite;
 }
 
 .container {
@@ -38,13 +39,41 @@ img {
 select {
     display: block;
     width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
 }
 
+#food {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+#food > div {
+    flex-basis: calc(50% - 10px);
+    text-align: center;
+}
+
+.item {
+   opacity: 0.1;
+   transition: opacity 2.5s ease-in-out;
+}
+
+.item.active {
+    opacity: 1;
+}
 
 /* Tablet/Desktop overrides */
 
-@media(min-width: 681px) {}
+@media(min-width: 681px) {
+    select {
+        width: 33%;
+    }
+}
 
 @media(min-width: 729px) {
     /* Any adjustments for desktop and larger go here. Note these styles will be applied to anything 729px or larger -- so desktop */
+    #food > div {
+        flex-basis: calc(33% - 10px);
+    }
 }
